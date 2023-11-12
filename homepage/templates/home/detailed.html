@@ -1,0 +1,17 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block title %}Detailed{% endblock title %}
+{% block content %}
+<div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-12">
+            <div class="post-heading">
+                <h2 class="subheading text-secondary">{{blog.title}} </h2>
+                <img src="{{ blog.blog_image.url }}"
+                <blockquote class="blockquote">{{blog.created_at}} by<strong class="text-success"> {{blog.created_by}}</strong></blockquote>
+                <p> <span class="badge text-bg-success rounded-pill"> <i>{{blog.blog_categery}}</i></span> {{blog.content}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

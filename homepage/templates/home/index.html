@@ -1,0 +1,46 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+    
+    <header class="masthead" style="background-image: url('{% static 'assets/img/home-bg.jpg' %}')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h1>Clean Blogs</h1>
+                        <span class="subheading">A Blog Theme with Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% for blogs in blog %}
+        {% if forloop.counter <= 5 %}
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <!-- Post preview-->
+                        <div class="post-preview">
+                            <h2 class="post-title text-primary">
+                                <a href="details/{{ blogs.blog_id }}">
+                                {{blogs.title}}</a></h2>
+                            <h3 class="post-subtitle">About '{{blogs.blog_categery}}' in detailed</h3>
+                            <p class="post-meta">
+                                <span class="badge text-bg-secondary rounded-pill"><i>{{blogs.blog_categery}}</i></span> Posted by
+                                <i class= "text-info ">{{blogs.created_by}}</i>
+                                on<i class= "text-info ">  {{blogs.created_at}}</i>
+                            </p>
+                            
+                        </div>
+                        
+                        <!-- Divider-->
+                        <hr class="my-4" />
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+    <div class="d-flex justify-content-center mb-4"><a class="btn btn-primary text-uppercase" href="{% url 'blog_post'%}">Older Posts →</a></div>
+{% endblock content %}

@@ -1,0 +1,163 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block title %}Blogs{% endblock title %}
+{% block content %}
+{% block nav %}
+<nav class="navbar navbar-expand-lg navbar-secondary" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#style">Styles</a></li>
+                <li class="nav-item"><a class="nav-link" href="#travel">Travels</a></li>
+                <li class="nav-item"><a class="nav-link" href="#health">Healths</a></li>
+                <li class="nav-item"><a class="nav-link" href="#science">Science</a></li>
+                <li class="nav-item"><a class="nav-link" href="#opinion">Opinions</a></li>
+                <li class="nav-item"><a class="nav-link" href="#politics">Politics</a></li>
+                <li class="nav-item"><a class="nav-link" href="#culture">Traditions</a></li>
+                <li class="nav-item"><a class="nav-link" href="#design">Designs</a></li>
+                <li class="nav-item"><a class="nav-link" href="#personal">Personal</a></li>
+                <li class="nav-item"><a class="nav-link" href="#world">World</a></li>
+                <li class="nav-item"><a class="nav-link" href="#technology">Technologies</a></li>
+                <li class="nav-item"><a class="nav-link" href="#finiancial">Finiance</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+    <header class="masthead" style="background-image: url('{% static 'assets/img/post-bg.jpg' %}')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading">
+                        <h1>Man must explore, and this is exploration at its greatest</h1>
+                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+                        <span class="meta">
+                            August 24, 2023 by
+                            <a href="#!">Alan Tour</a>
+                           
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="health">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-5">
+                    <div class="post-heading text-primary justify-center-center">
+                        <h1>Importants of Health</h1></br>
+                    </div>
+                </div>
+            
+                {% for blogs in health_blog %}
+                    <div class="container position-relative px-4 px-lg-5">
+                        <div class="row gx-4 gx-lg-5 justify-content-center">
+                            <div class="col-md-10 col-lg-8 col-xl-12">
+                                <div class="post-heading">
+                                    <h2 class="subheading text-secondary">{{blogs.title}} </h2>
+                                    <blockquote class="blockquote">{{blogs.created_at}} by<strong class="text-success"> {{blogs.created_by}}</strong></blockquote>
+                                    <p> <span class="badge text-bg-success rounded-pill"> <i>{{blogs.blog_categery}}</i></span> {{blogs.content}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-5" /></br></br>    
+        {% endfor %}
+        <hr class="my-1 " />
+            <p class="bg-dark">d</p>
+        <hr class="my-2" />
+    </section>
+    <section id="finiancial">
+        <div class="Personal container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-5">
+                    <div class="post-heading text-primary justify-center-center">
+                        <h1>Finiancial Blogs</h1></br>
+                    </div>
+                </div>
+            </div>
+        </div></br>
+        {% for blogs in money_blog %}
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-12">
+                        <div class="post-heading">
+                            <image url={{blogs.blog_image}}/>
+                            <h2 class="subheading text-secondary">{{blogs.title}} </h2>
+                            <blockquote class="blockquote">{{blogs.created_at}} by<strong class="text-success"> {{blogs.created_by}}</strong></blockquote>
+                            <p> <span class="badge text-bg-success rounded-pill"> <i>{{blogs.blog_categery}}</i></span> {{blogs.content}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5" /></br></br>    
+        {% endfor %}
+        <hr class="my-1 " />
+            <p class="bg-dark">d</p>
+        <hr class="my-2" />
+    </section>
+<section id="finiancial">
+    <div class="Personal container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-5">
+                <div class="post-heading text-primary justify-center-center">
+                    <h1>Finiancial Blogs</h1></br>
+                </div>
+            </div>
+        </div>
+    </div></br>
+    {% for blogs in money_blog %}
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-12">
+                    <div class="post-heading">
+                        <h2 class="subheading text-secondary">{{blogs.title}} </h2>
+                        <blockquote class="blockquote">{{blogs.created_at}} by<strong class="text-success"> {{blogs.created_by}}</strong></blockquote>
+                        <p> <span class="badge text-bg-success rounded-pill"> <i>{{blogs.blog_categery}}</i></span> {{blogs.content}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="my-5" /></br></br>    
+    {% endfor %}
+    <hr class="my-1 " />
+        <p class="bg-dark">d</p>
+    <hr class="my-2" />
+</section>
+
+
+<section id="business">
+    <div class="Personal container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-5">
+                <div class="post-heading text-primary justify-center-center">
+                    <h1>Modern Business</h1></br>
+                </div>
+            </div>
+        </div>
+    </div></br>
+    {% for blogs in business_blog %}
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-12">
+                    <div class="post-heading">
+                        <h2 class="subheading text-secondary">{{blogs.title}} </h2>
+                        <blockquote class="blockquote">{{blogs.created_at}} by<strong class="text-success"> {{blogs.created_by}}</strong></blockquote>
+                        <p> <span class="badge text-bg-success rounded-pill"> <i>{{blogs.blog_categery}}</i></span> {{blogs.content}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="my-5" /></br></br>    
+    {% endfor %}
+    <hr class="my-1 " />
+        <p class="bg-dark">d</p>
+    <hr class="my-2" />
+</section>
+{% endblock %}    
